@@ -24,7 +24,7 @@ source("function.r")
 datasets <- all_newest_datasets(endpoint)
 
 
-
+datasets
 
 #############################################################################
 # Getting the Data ----------------------------------------------------------
@@ -91,6 +91,7 @@ non_conforming <- df %>% filter( is.na(Object), ReqLevel != "Optional")  #%>% se
 non_conforming
 non_conforming %>% group_by(Predicate) %>% count()
 
-non_conforming %>% group_by(dataset_name) %>% count()
+non_conforming_datasets <- non_conforming %>% group_by(dataset_name) %>% count()
 
+non_conforming_datasets
 
